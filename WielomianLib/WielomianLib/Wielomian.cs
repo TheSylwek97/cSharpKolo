@@ -72,15 +72,14 @@ namespace MyMath
             else
                 throw new ArgumentException("wielomian nie może być pusty");
         }
-
-        private string g;
+        
 
         public bool Equals(Wielomian other)
         {
             if (other == null)
                 return false;
 
-            if (this.g == other.g)
+            if (this.a == other.a)
                 return true;
             else
                 return false;
