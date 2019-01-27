@@ -1,0 +1,6 @@
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianLib\bin\Debug\WielomianLib.dll
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianLib\bin\Debug\WielomianLib.pdb
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianLib\obj\Debug\WielomianLib.csprojAssemblyReference.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianLib\obj\Debug\WielomianLib.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianLib\obj\Debug\WielomianLib.dll
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianLib\obj\Debug\WielomianLib.pdb

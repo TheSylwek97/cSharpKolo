@@ -1,0 +1,10 @@
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\bin\Debug\WielomianTest.exe.config
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\bin\Debug\WielomianTest.exe
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\bin\Debug\WielomianTest.pdb
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\obj\Debug\WielomianTest.csprojAssemblyReference.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\obj\Debug\WielomianTest.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\obj\Debug\WielomianTest.exe
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\obj\Debug\WielomianTest.pdb
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\bin\Debug\WielomianLib.dll
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\bin\Debug\WielomianLib.pdb
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\WielomianTest\obj\Debug\WielomianTest.csproj.CopyComplete
