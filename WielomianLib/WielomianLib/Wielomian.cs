@@ -18,27 +18,28 @@ namespace MyMath
         
         public override string ToString()
         {
+            //Console.WriteLine(string.Join(" | ", a));
             string s = "";
-            for (int i = 0; i < Stopien; i++)
+            for (int i = Stopien; i > 0; i--) //  int i = Stopien; i > 0; i-- || int i = 0; i < Stopien; i++
             {
-                s += a[i] + "x^" + i + " ;+ ";
+                s += a[i] + "x^" + i + " + ";
             }
-            s = s + a[Stopien] + "x^" + Stopien;
-            //return s + +a[Stopien] + "x^" + Stopien;
+            //s = s + a[Stopien] + "x^" + Stopien;
+            return s + a[0];// + "x^0";
+            /*
             string[] words;
-
             words = s.Split(';').ToArray<string>();
             Array.Reverse(words);
-            return string.Join("", words);
+            return string.Join(" ", words);*/
         }
         
         public Wielomian(params int[] wspolczynniki)
         {
-            a = new int[wspolczynniki.Length]; //niewolno a=wspol... bo nie będzie niezmienniczości
-            
+            a = new int[wspolczynniki.Length]; //nie wolno a=wwspolczynniki, bo nie będzie niezmienniczości
+
             if (a.Length != 0)
             {
-                Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a  nie może być pusta
+                Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a nie może być pusta
                 Array.Reverse(a);
                 //a = a.Where(x => x != 0).ToArray();
             }
