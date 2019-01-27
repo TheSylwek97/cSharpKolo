@@ -9,7 +9,6 @@ namespace MyMath
     public class Wielomian
     {
         private int[] a;
-        private int[] b;
         public int Stopien => a.Length - 1; //to tylko get
 
         public Wielomian()
@@ -47,9 +46,17 @@ namespace MyMath
                     else if (wspolczynniki[i] != 0)
                         liczZera = false;
                 }
+                //var aLength = wspolczynniki.Length == ileZer ? 1 : wspolczynniki.Length - ileZer;
                 a = new int[wspolczynniki.Length - ileZer]; //nie wolno a=wspolczynniki, bo nie będzie niezmienniczości
-
-                Array.Copy(wspolczynniki, ileZer, a, 0, a.Length); //a nie może być pusta
+                if (wspolczynniki.Length == ileZer)
+                {
+                    a = new int[1] { 0 };
+                }
+                else
+                {
+                    a = new int[wspolczynniki.Length - ileZer];
+                    Array.Copy(wspolczynniki, ileZer, a, 0, wspolczynniki.Length - ileZer); //a nie może być pusta
+                }
                 Array.Reverse(a);
                 //a = a.Where(x => x != 0).ToArray();
                 //(Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length);
