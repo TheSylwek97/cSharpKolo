@@ -19,7 +19,7 @@ namespace MyMath
         public override string ToString()
         {
             string s = "";
-            for (int i = 0; i <= Stopien - 1; i++)
+            for (int i = 0; i < Stopien; i++)
             {
                 s += a[i] + "x^" + i + " + ";
             }
@@ -28,9 +28,10 @@ namespace MyMath
         
         public Wielomian(params int[] wspolczynniki)
         {
-            a = new int[wspolczynniki.Length]; //nie wlono a=wspol... bo nie będzie niezmienniczości
-            Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a chyba nie może być pusta
-            //Array.Reverse(a);
+            a = new int[wspolczynniki.Length]; //niewolno a=wspol... bo nie będzie niezmienniczości
+            Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a  nie może być pusta
+            Array.Reverse(a);
+            //a = a.Where(x => x != 0).ToArray();
         }
     }
 }
