@@ -9,6 +9,7 @@ namespace MyMath
     public class Wielomian
     {
         private int[] a;
+        private int[] b;
         public int Stopien => a.Length - 1; //to tylko get
 
         public Wielomian()
@@ -35,13 +36,23 @@ namespace MyMath
         
         public Wielomian(params int[] wspolczynniki)
         {
-            a = new int[wspolczynniki.Length]; //nie wolno a=wwspolczynniki, bo nie będzie niezmienniczości
-
-            if (a.Length != 0)
+            if (wspolczynniki.Length != 0)
             {
-                Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a nie może być pusta
+                bool liczZera = true;
+                long ileZer = 0;
+                for (int i =0; i < wspolczynniki.Length; i++)
+                {
+                    if (wspolczynniki[i] == 0 && liczZera == true)
+                        ileZer++; 
+                    else if (wspolczynniki[i] != 0)
+                        liczZera = false;
+                }
+                a = new int[wspolczynniki.Length - ileZer]; //nie wolno a=wspolczynniki, bo nie będzie niezmienniczości
+
+                Array.Copy(wspolczynniki, ileZer, a, 0, a.Length); //a nie może być pusta
                 Array.Reverse(a);
                 //a = a.Where(x => x != 0).ToArray();
+                //(Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length);
             }
             else
                 throw new ArgumentException("wielomian nie może być pusty");
