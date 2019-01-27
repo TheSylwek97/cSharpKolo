@@ -15,7 +15,7 @@ namespace MyMath
         {
             a = new int[1] { 0 };
         }
-
+        
         public override string ToString()
         {
             string s = "";
@@ -25,12 +25,12 @@ namespace MyMath
             }
             return s + a[Stopien] + "x^" + Stopien;
         }
-
+        
         public Wielomian(params int[] wspolczynniki)
         {
             a = new int[wspolczynniki.Length]; //nie wlono a=wspol... bo nie będzie niezmienniczości
             Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a chyba nie może być pusta
-            Array.Reverse(a);
+            //Array.Reverse(a);
         }
     }
 }

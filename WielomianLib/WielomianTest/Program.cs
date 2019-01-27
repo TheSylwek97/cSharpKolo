@@ -16,7 +16,7 @@ namespace z2_1_wielomian
 
             Wielomian w0 = new Wielomian();
             Console.WriteLine($"wielomian domyślny W() = {w0}, stopień = {w0.Stopien}");
-
+            
             Wielomian w01 = new W(-1);
             Console.WriteLine($"W(-1) = {w01}, stopień = {w01.Stopien}");
 
