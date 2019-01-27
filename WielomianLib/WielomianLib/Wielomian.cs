@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyMath
 {
-    public class Wielomian
+    public class Wielomian : IEquatable<Wielomian>
     {
         private int[] a;
         public int Stopien => a.Length - 1; //to tylko get
@@ -46,7 +46,7 @@ namespace MyMath
                     else if (wspolczynniki[i] != 0)
                         liczZera = false;
                 }
-                //var aLength = wspolczynniki.Length == ileZer ? 1 : wspolczynniki.Length - ileZer;
+                
                 a = new int[wspolczynniki.Length - ileZer]; //nie wolno a=wspolczynniki, bo nie będzie niezmienniczości
                 if (wspolczynniki.Length == ileZer)
                 {
@@ -58,12 +58,52 @@ namespace MyMath
                     Array.Copy(wspolczynniki, ileZer, a, 0, wspolczynniki.Length - ileZer); //a nie może być pusta
                 }
                 Array.Reverse(a);
-                //a = a.Where(x => x != 0).ToArray();
-                //(Array sourceArray, long sourceIndex, Array destinationArray, long destinationIndex, long length);
+                //a = a.Where(x => x != 0).ToArray(); usuwanie 0 z tablicy.
+/*
+                if (Regex.IsMatch(ssn, @"\d{9}"))
+                    uniqueSsn = $"{ssn.Substring(0, 3)}-{ssn.Substring(3, 2)}-{ssn.Substring(5, 4)}";
+                else if (Regex.IsMatch(ssn, @"\d{3}-\d{2}-\d{4}"))
+                    uniqueSsn = ssn;
+                else
+                    throw new FormatException("The social security number has an invalid format.");
+
+                this.LastName = lastName;*/
             }
             else
                 throw new ArgumentException("wielomian nie może być pusty");
         }
+
+        private string g;
+
+        public bool Equals(Wielomian other)
+        {
+            if (other == null)
+                return false;
+
+            if (this.g == other.g)
+                return true;
+            else
+                return false;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+                return false;
+
+            Wielomian wielomianObj = obj as Wielomian;
+            if (wielomianObj == null)
+                return false;
+            else
+                return Equals(wielomianObj);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Stopien.GetHashCode();
+        }
+        
+
     }
 }
 

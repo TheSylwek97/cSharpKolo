@@ -1,0 +1,7 @@
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\obj\Debug\LinqTest.csprojAssemblyReference.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\obj\Debug\LinqTest.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\bin\Debug\LinqTest.exe.config
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\bin\Debug\LinqTest.exe
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\bin\Debug\LinqTest.pdb
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\obj\Debug\LinqTest.exe
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\LinqTest\obj\Debug\LinqTest.pdb

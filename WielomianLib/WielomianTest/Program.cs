@@ -59,7 +59,7 @@ namespace z2_1_wielomian
             {
                 Console.WriteLine($"W( int[0] ) --> ArgumentException: {e.Message}");
             }
-            /*
+            
             Console.WriteLine("== Równość, nierówność ==");
 
             Console.WriteLine($"W(1, 2).Equals(W(1, 2)) : {(new W(1, 2)).Equals(new W(1, 2))}");
@@ -71,7 +71,7 @@ namespace z2_1_wielomian
             Console.WriteLine($"W(1, 2) != W(2, 1) : {new W(1, 2) != new W(2, 1)}");
             Console.WriteLine($"W(1, 2) == W(0, 1, 2) : {new W(1, 2) == new W(0, 1, 2)}");
             Console.WriteLine($"W(1, 2) != W(0, 1, 2) : {new W(1, 2) != new W(0, 1, 2)}");
-            */
+            
             /*
             Console.WriteLine("== Operacje arytmetyczne ==");
 
