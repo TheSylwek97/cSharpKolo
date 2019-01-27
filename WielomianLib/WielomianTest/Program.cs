@@ -89,7 +89,7 @@ namespace z2_1_wielomian
             
             Console.WriteLine("== Konwersje ==");
 
-            //Wielomian w = 10;  //konwersja domyślna z int na Wielomian
+            Wielomian w = 10;  //konwersja domyślna z int na Wielomian
             /*
             int[] t = (int[])(new W(1));
             Console.WriteLine($"int[{t.Length}]: [{String.Join(',', t)}]");
@@ -108,26 +108,26 @@ namespace z2_1_wielomian
             {
                 Console.WriteLine($"InvalidCastException: {e.Message}");
             }
-
+            /*
             Console.WriteLine("== indexer ==");
 
             Console.WriteLine("W(1,2,3): ");
             for (int i = 0; i <= w21.Stopien; i++)
                 Console.WriteLine($"  w{i} = {w21[i]}");
-
+            /*
             Console.WriteLine("== enumerator ==");
 
             Console.Write("W(1,2,3): ");
             foreach (var x in w21)
                 Console.Write($"{x} ");
             Console.WriteLine();
-
+            /*
             Console.WriteLine("== konstruktor dla string ==");
 
             Wielomian wS = Wielomian.Parse("3x^2 - 2x^1 + 1");
             Console.WriteLine("Wielomian.Parse(\"3x^2 - 2x^1 + 1\") = {0}", wS);
             Console.WriteLine($"W(3, -2, 1) == Wielomian.Parse(\"3x^2 - 2x^1 + 1\"): {new Wielomian(3, -2, 1) == wS}");
-
+            /*
             Console.WriteLine("== Metoda rozszerzająca Eval ==");
 
             Console.WriteLine($"Metoda rozszerzająca: new W(1,2,1).Eval(2.0) = {new W(1, 2, 1).Eval(2.0)}");

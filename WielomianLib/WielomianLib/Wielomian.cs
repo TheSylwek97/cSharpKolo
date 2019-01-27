@@ -6,20 +6,31 @@ using System.Threading.Tasks;
 
 namespace MyMath
 {
+
     public class Wielomian : IEquatable<Wielomian>
     {
         private int[] a;
         public int Stopien => a.Length - 1; //to tylko get
 
-        //int na wielomian
-        public Wielomian x;
-        int v = (int)x;
-
         public Wielomian()
         {
             a = new int[1] { 0 };
         }
+        //int na wielomian
         
+        public static implicit operator Wielomian(int x)
+        {
+            return x;
+        }
+        /*
+        public static implicit operator Wielomian(int z)
+        {
+            return z.value;
+        }*/
+        //reszta kodu  
+
+        //pole prywatne 
+        private int value;
         public override string ToString()
         {
             //Console.WriteLine(string.Join(" | ", a));
