@@ -11,26 +11,30 @@ namespace MyMath
     {
         private int[] a;
         public int Stopien => a.Length - 1; //to tylko get
+        
 
         public Wielomian()
         {
             a = new int[1] { 0 };
         }
-        //int na wielomian
-        
-        public static implicit operator Wielomian(int x)
-        {
-            return x;
-        }
-        /*
-        public static implicit operator Wielomian(int z)
-        {
-            return z.value;
-        }*/
-        //reszta kodu  
 
-        //pole prywatne 
-        private int value;
+        public int val;
+        // jawna Wielomian na int
+        public static implicit operator int(Wielomian d)
+        {
+            return d.val;
+        }
+        // jawna int na Wielomian
+        public static implicit operator Wielomian(int d)
+        {
+            return new Wielomian(d);
+        }
+        //niejawna z Wielomian na int[]
+        public static explicit operator int[](Wielomian r)
+        {
+            a = new int[r.Length];
+            return new int[];
+        }
         public override string ToString()
         {
             //Console.WriteLine(string.Join(" | ", a));
@@ -74,7 +78,7 @@ namespace MyMath
                 }
                 Array.Reverse(a);
                 //a = a.Where(x => x != 0).ToArray(); usuwanie 0 z tablicy.
-/*
+                /*
                 if (Regex.IsMatch(ssn, @"\d{9}"))
                     uniqueSsn = $"{ssn.Substring(0, 3)}-{ssn.Substring(3, 2)}-{ssn.Substring(5, 4)}";
                 else if (Regex.IsMatch(ssn, @"\d{3}-\d{2}-\d{4}"))

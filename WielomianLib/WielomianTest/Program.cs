@@ -90,7 +90,7 @@ namespace z2_1_wielomian
             Console.WriteLine("== Konwersje ==");
 
             Wielomian w = 10;  //konwersja domyślna z int na Wielomian
-            /*
+            
             int[] t = (int[])(new W(1));
             Console.WriteLine($"int[{t.Length}]: [{String.Join(',', t)}]");
 
@@ -99,7 +99,7 @@ namespace z2_1_wielomian
 
             int[] t11 = (int[])(new W(1, 2));
             Console.WriteLine($"int[{t11.Length}]: [{String.Join(',', t11)}]");
-
+            /*
             try
             {
                 int t12 = (int)(new W(1, 2));
