@@ -48,9 +48,12 @@ namespace LinqTest
 
             var klienciKupujacyW2018NotacjaKropkowa = klienci.Where(x => x.zamowienia.Any(y => y.DataZamowienia.Year == 2018));
             Console.WriteLine("klienci kupujacy w 2018 notacja kropkowa: " + string.Join(" / ", klienciKupujacyW2018NotacjaKropkowa.Select(x => x.nazwaKlienta)));
-            //var klienciKupujacyW2018NotacjaQuery = from klient in klienci where 
-            //Console.WriteLine("klienci kupujacy w 2018 notacja kropkowa: " + string.Join(" / ", from klient in klienciKupujacyW2018NotacjaQuery select klient.nazwaKlienta));
-
+            var klienciKupujacyW2018NotacjaQuery = from klient in klienci
+                                                   let zamowienia = klient.zamowienia
+                                                   from zamowienie in zamowienia
+                                                   where zamowienie.DataZamowienia.Year == 2018
+                                                   select klient;
+            Console.WriteLine("klienci kupujący w 2018 notacją query: " + string.Join(" / ", from klient in klienciKupujacyW2018NotacjaQuery select klient.nazwaKlienta));
 
         }
 

@@ -11,6 +11,10 @@ namespace MyMath
         private int[] a;
         public int Stopien => a.Length - 1; //to tylko get
 
+        //int na wielomian
+        public Wielomian x;
+        int v = (int)x;
+
         public Wielomian()
         {
             a = new int[1] { 0 };
