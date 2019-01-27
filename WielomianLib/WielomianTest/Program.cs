@@ -31,7 +31,7 @@ namespace z2_1_wielomian
 
             var w12 = new Wielomian(1, -1);
             Console.WriteLine($"W(1,-1) = {w12}, stopień = {w12.Stopien}");
-
+            
             var w3 = new W(-2, 0, 1, -3);
             Console.WriteLine($"W(-2, 0, 1, -3) = {w3}, stopień = {w3.Stopien}");
 
@@ -71,8 +71,8 @@ namespace z2_1_wielomian
             Console.WriteLine($"W(1, 2) != W(2, 1) : {new W(1, 2) != new W(2, 1)}");
             Console.WriteLine($"W(1, 2) == W(0, 1, 2) : {new W(1, 2) == new W(0, 1, 2)}");
             Console.WriteLine($"W(1, 2) != W(0, 1, 2) : {new W(1, 2) != new W(0, 1, 2)}");
-
-            
+            */
+            /*
             Console.WriteLine("== Operacje arytmetyczne ==");
 
             var w21 = new W(1, 2, 3);
@@ -85,8 +85,8 @@ namespace z2_1_wielomian
             Console.WriteLine($"({w21}) + {10} = {w21 + 10}");
             Console.WriteLine($"{10} + ({w21}) = {10 + w21}");
             Console.WriteLine($"({w21}) - {10} = {w21 - 10}");
-            Console.WriteLine($"{10} - ({w21}) = {10 - w21}");
-
+            Console.WriteLine($"{10} - ({w21}) = {10 - w21}");*/
+            /*
             Console.WriteLine("== Konwersje ==");
 
             Wielomian w = 10;  //konwersja domyślna z int na Wielomian

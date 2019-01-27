@@ -21,17 +21,30 @@ namespace MyMath
             string s = "";
             for (int i = 0; i < Stopien; i++)
             {
-                s += a[i] + "x^" + i + " + ";
+                s += a[i] + "x^" + i + " ;+ ";
             }
-            return s + a[Stopien] + "x^" + Stopien;
+            s = s + a[Stopien] + "x^" + Stopien;
+            //return s + +a[Stopien] + "x^" + Stopien;
+            string[] words;
+
+            words = s.Split(';').ToArray<string>();
+            Array.Reverse(words);
+            return string.Join("", words);
         }
         
         public Wielomian(params int[] wspolczynniki)
         {
             a = new int[wspolczynniki.Length]; //niewolno a=wspol... bo nie będzie niezmienniczości
-            Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a  nie może być pusta
-            Array.Reverse(a);
-            //a = a.Where(x => x != 0).ToArray();
+            
+            if (a.Length != 0)
+            {
+                Array.Copy(wspolczynniki, a, wspolczynniki.Length); //a  nie może być pusta
+                Array.Reverse(a);
+                //a = a.Where(x => x != 0).ToArray();
+            }
+            else
+                throw new ArgumentException("wielomian nie może być pusty");
         }
     }
 }
+
