@@ -72,7 +72,7 @@ namespace z2_1_wielomian
             Console.WriteLine($"W(1, 2) == W(0, 1, 2) : {new W(1, 2) == new W(0, 1, 2)}");
             Console.WriteLine($"W(1, 2) != W(0, 1, 2) : {new W(1, 2) != new W(0, 1, 2)}");
             */
-            /*
+            
             Console.WriteLine("== Operacje arytmetyczne ==");
 
             var w21 = new W(1, 2, 3);
@@ -85,21 +85,21 @@ namespace z2_1_wielomian
             Console.WriteLine($"({w21}) + {10} = {w21 + 10}");
             Console.WriteLine($"{10} + ({w21}) = {10 + w21}");
             Console.WriteLine($"({w21}) - {10} = {w21 - 10}");
-            Console.WriteLine($"{10} - ({w21}) = {10 - w21}"); */
+            Console.WriteLine($"{10} - ({w21}) = {10 - w21}"); 
             
             Console.WriteLine("== Konwersje ==");
 
             Wielomian w = 10;  //konwersja domyślna z int na Wielomian
-            
+            /*
             int[] t = (int[])(new W(1));
             Console.WriteLine($"int[{t.Length}]: [{String.Join(',', t)}]");
 
             int y = (int)(new W(1));
             Console.WriteLine($"int y: {y}");
-
+            
             int[] t11 = (int[])(new W(1, 2));
             Console.WriteLine($"int[{t11.Length}]: [{String.Join(',', t11)}]");
-            /*
+            */
             try
             {
                 int t12 = (int)(new W(1, 2));
@@ -114,14 +114,14 @@ namespace z2_1_wielomian
             Console.WriteLine("W(1,2,3): ");
             for (int i = 0; i <= w21.Stopien; i++)
                 Console.WriteLine($"  w{i} = {w21[i]}");
-            /*
+            *//*
             Console.WriteLine("== enumerator ==");
 
             Console.Write("W(1,2,3): ");
             foreach (var x in w21)
                 Console.Write($"{x} ");
             Console.WriteLine();
-            /*
+            */
             Console.WriteLine("== konstruktor dla string ==");
 
             Wielomian wS = Wielomian.Parse("3x^2 - 2x^1 + 1");

@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace MyMath
 {
 
-    public class Wielomian : IEquatable<Wielomian>
+    public class Wielomian //: /*IEquatable<Wielomian>,*/ IEnumerator<Wielomian>
     {
-        private int[] a;
-        public int Stopien => a.Length - 1; //to tylko get
+        private int[] a;//{ get; set; }
         
+        public int Stopien => a.Length - 1; //to tylko get
+        //public int Stopien { get { return a.Length - 1; } set {Stopien = value; } }
+
 
         public Wielomian()
         {
@@ -22,7 +24,12 @@ namespace MyMath
         // jawna Wielomian na int
         public static implicit operator int(Wielomian d)
         {
-            return d.val;
+            if(d.Stopien == 0)
+                return d.val;
+            else
+                throw new InvalidCastException("wielomian nie jest stopnia zerowego");
+
+
         }
         // jawna int na Wielomian
         public static implicit operator Wielomian(int d)
@@ -32,8 +39,9 @@ namespace MyMath
         //niejawna z Wielomian na int[]
         public static explicit operator int[](Wielomian r)
         {
-            a = new int[r.Length];
-            return new int[];
+            //r = Int32.Parse("r");
+            int[] b = new int[] { r };
+            return b;
         }
         public override string ToString()
         {
@@ -51,7 +59,24 @@ namespace MyMath
             Array.Reverse(words);
             return string.Join(" ", words);*/
         }
-        
+        public static Wielomian Parse(string c)
+        {/*
+            Type type = Type.GetType(inputString); //target type
+            object o = Activator.CreateInstance(type); // an instance of target type
+            YourType your = (YourType)o;*/
+            Type type = Type.GetType(c); //target type
+            object o = Activator.CreateInstance(type); // an instance of target type
+            Wielomian w = (Wielomian)o;
+
+            string[] words;
+            words = c.Split('^').ToArray<string>();
+
+            if (words.Length > 0)
+                return w;
+            else
+                throw new InvalidCastException("Długość tablicy wielomianu wynosi 0");
+            //Wielomian s = new Wielomian();
+        }
         public Wielomian(params int[] wspolczynniki)
         {
             if (wspolczynniki.Length != 0)
@@ -78,21 +103,41 @@ namespace MyMath
                 }
                 Array.Reverse(a);
                 //a = a.Where(x => x != 0).ToArray(); usuwanie 0 z tablicy.
-                /*
-                if (Regex.IsMatch(ssn, @"\d{9}"))
-                    uniqueSsn = $"{ssn.Substring(0, 3)}-{ssn.Substring(3, 2)}-{ssn.Substring(5, 4)}";
-                else if (Regex.IsMatch(ssn, @"\d{3}-\d{2}-\d{4}"))
-                    uniqueSsn = ssn;
-                else
-                    throw new FormatException("The social security number has an invalid format.");
-
-                this.LastName = lastName;*/
+                
             }
             else
                 throw new ArgumentException("wielomian nie może być pusty");
+        }/*
+        public bool MoveNext()//back
+        {
+            Stopien--;
+            return (Stopien < a.Length);
         }
-        
-
+        public void Reset()
+        {
+            Stopien = a.Length - 1;
+        }
+        object IEnumerator<Wielomian>.Current
+        {
+            get
+            {
+                return Current;
+            }
+        }
+        public Wielomian Current
+        {
+            get
+            {
+                try
+                {
+                    return a[Stopien];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }/*
         public bool Equals(Wielomian other)
         {
             if (other == null)
@@ -109,8 +154,7 @@ namespace MyMath
             if (obj == null)
                 return false;
 
-            Wielomian wielomianObj = obj as Wielomian;
-            if (wielomianObj == null)
+            if (!(obj is Wielomian wielomianObj))
                 return false;
             else
                 return Equals(wielomianObj);
@@ -120,7 +164,7 @@ namespace MyMath
         {
             return this.Stopien.GetHashCode();
         }
-        
+        */
 
     }
 }
