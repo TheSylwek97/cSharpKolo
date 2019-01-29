@@ -1,0 +1,7 @@
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\bin\Debug\Testy.exe.config
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\bin\Debug\Testy.exe
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\bin\Debug\Testy.pdb
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\obj\Debug\Testy.csprojAssemblyReference.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\obj\Debug\Testy.csproj.CoreCompileInputs.cache
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\obj\Debug\Testy.exe
+C:\Users\Izabela\Documents\cSharpKolo\WielomianLib\Testy\obj\Debug\Testy.pdb

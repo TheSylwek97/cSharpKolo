@@ -59,7 +59,7 @@ namespace z2_1_wielomian
             {
                 Console.WriteLine($"W( int[0] ) --> ArgumentException: {e.Message}");
             }
-            /*
+            
             Console.WriteLine("== Równość, nierówność ==");
 
             Console.WriteLine($"W(1, 2).Equals(W(1, 2)) : {(new W(1, 2)).Equals(new W(1, 2))}");
@@ -71,12 +71,12 @@ namespace z2_1_wielomian
             Console.WriteLine($"W(1, 2) != W(2, 1) : {new W(1, 2) != new W(2, 1)}");
             Console.WriteLine($"W(1, 2) == W(0, 1, 2) : {new W(1, 2) == new W(0, 1, 2)}");
             Console.WriteLine($"W(1, 2) != W(0, 1, 2) : {new W(1, 2) != new W(0, 1, 2)}");
-            */
+            
             
             Console.WriteLine("== Operacje arytmetyczne ==");
 
             var w21 = new W(1, 2, 3);
-            var w22 = new W(0, 1, 2);
+            var w22 = new W(0, 1, 2);/*
             Console.WriteLine($"({w21}) + ({w22}) = {w21 + w22}");
             Console.WriteLine($"({w22}) + ({w21}) = {w22 + w21}");
             Console.WriteLine($"({w21}) - ({w22}) = {w21 - w22}");
@@ -86,7 +86,7 @@ namespace z2_1_wielomian
             Console.WriteLine($"{10} + ({w21}) = {10 + w21}");
             Console.WriteLine($"({w21}) - {10} = {w21 - 10}");
             Console.WriteLine($"{10} - ({w21}) = {10 - w21}"); 
-            
+            */
             Console.WriteLine("== Konwersje ==");
 
             Wielomian w = 10;  //konwersja domyślna z int na Wielomian
@@ -121,9 +121,9 @@ namespace z2_1_wielomian
             foreach (var x in w21)
                 Console.Write($"{x} ");
             Console.WriteLine();
-            */
+            /*
             Console.WriteLine("== konstruktor dla string ==");
-
+            
             Wielomian wS = Wielomian.Parse("3x^2 - 2x^1 + 1");
             Console.WriteLine("Wielomian.Parse(\"3x^2 - 2x^1 + 1\") = {0}", wS);
             Console.WriteLine($"W(3, -2, 1) == Wielomian.Parse(\"3x^2 - 2x^1 + 1\"): {new Wielomian(3, -2, 1) == wS}");
