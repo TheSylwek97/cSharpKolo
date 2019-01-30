@@ -12,7 +12,7 @@ namespace MyMath
     {
         private readonly int[] a;//{ get; set; } immutability: nie może być setterów, Provide parameters via constructor., readonly 
         public int Stopien => a.Length - 1; //to tylko get
-        //public int Stopien { get { return a.Length - 1; } set { Stopien = value; } }//TYLKO TO UNIT TESTÓW
+        //public int Stopien { get { return a.Length - 1; } set { Stopien = value; } }//TYLKO DLA UNIT TESTÓW
 
         public Wielomian()
         {
