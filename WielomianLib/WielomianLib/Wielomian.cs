@@ -8,44 +8,47 @@ using System.Threading.Tasks;
 namespace MyMath
 {
 
-    public sealed class Wielomian// : IEquatable<Wielomian>// : IEnumerable<Wielomian> //IE NIE SKOŃCZONE, nie działa poprawnie
+    public sealed class Wielomian : IEnumerable<Wielomian>, IEnumerator<Wielomian>, IEquatable<Wielomian> //IE NIE SKOŃCZONE, nie działa poprawnie
     {
         private readonly int[] a;//{ get; set; } immutability: nie może być setterów, Provide parameters via constructor., readonly 
         public int Stopien => a.Length - 1; //to tylko get
-        //public int Stopien { get { return a.Length - 1; } set { Stopien = value; } }//TYLKO DLA UNIT TESTÓW
 
+        //public int Stopien { get { return a.Length - 1; } set { Stopien = value; } }//TYLKO DLA UNIT TESTÓW
+        //konstruktor domyślny
         public Wielomian()
         {
             a = new int[1] { 0 };
         }
 
-        // jawna Wielomian na int
+        // konwersja jawna Wielomian na int
         private int val;
         public static implicit operator int(Wielomian d)
         {
 
-            if(d.Stopien == 0)
+            if (d.Stopien == 0)
                 return d.val;
             else
                 throw new InvalidCastException("wielomian nie jest stopnia zerowego");
         }
 
-        // jawna int na Wielomian
+        // konwersja jawna int na Wielomian
         public static implicit operator Wielomian(int d)
         {
             return new Wielomian(d);
         }
 
-        //niejawna z Wielomian na int[]
-        public static explicit operator int[](Wielomian r) // NIE SKOŃCZONE
+        //konwersja niejawna z Wielomian na int[]
+        public static explicit operator int[] (Wielomian r) // NIE SKOŃCZONE
         {
+            Object number = r as Object;
             //r = Int32.Parse("r");
             //int[] array = c.Split(',').Select(str => int.Parse(str)).ToArray(); //string na int[]
             // lub int[] array = arr.Split(',').Select(int.Parse).ToArray(); //string na int[]
-
+            int[] a = number as int[];
             int[] b = new int[] { r };
             return b;
         }
+        //metoda tworząca reprezentacje do strina klasy wielomian
         public override string ToString()
         {
             //Console.WriteLine(string.Join(" | ", a));
@@ -72,22 +75,77 @@ namespace MyMath
             throw new InvalidCastException("Długość tablicy wielomianu ma nulla");
             //Wielomian s = new Wielomian();
         }*/
+        //foreach IEnumerator + IEnumerable
+        IEnumerator<Wielomian> IEnumerable<Wielomian>.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
 
+        //foreach IEnumerator + IEnumerable
+        public IEnumerator GetEnumerator()
+        {
+            return (IEnumerator)this;
+        }
 
+        //foreach IEnumerator + IEnumerable
+        Wielomian IEnumerator<Wielomian>.Current => throw new NotImplementedException();
+
+        //foreach IEnumerator + IEnumerable
+        private int position = -1;
+        object IEnumerator.Current
+        {
+
+            get
+            {
+                try
+                {
+                    return (Wielomian)a[position];
+                }
+                catch (IndexOutOfRangeException)
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+        //foreach IEnumerator + IEnumerable
+        bool disposed = false;
+        void IDisposable.Dispose()
+        {
+            // Dispose of unmanaged resources.
+            disposed = true;
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+        }
+
+        //foreach IEnumerator + IEnumerable
+        bool IEnumerator.MoveNext()
+        {
+            position++;
+            return (position < a.Length);
+
+        }
+
+        //foreach IEnumerator + IEnumerable
+        void IEnumerator.Reset()
+        {
+            position = 0;
+        }
+
+        //konstruktor 
         public Wielomian(params int[] wspolczynniki)
         {
             if (wspolczynniki.Length != 0)
             {
                 bool liczZera = true;
                 long ileZer = 0;
-                for (int i =0; i < wspolczynniki.Length; i++)
+                for (int i = 0; i < wspolczynniki.Length; i++)
                 {
                     if (wspolczynniki[i] == 0 && liczZera == true)
-                        ileZer++; 
+                        ileZer++;
                     else if (wspolczynniki[i] != 0)
                         liczZera = false;
                 }
-                
+
                 a = new int[wspolczynniki.Length - ileZer]; //nie wolno a=wspolczynniki, bo nie będzie niezmienniczości
                 if (wspolczynniki.Length == ileZer)
                 {
@@ -103,21 +161,28 @@ namespace MyMath
             }
             else
                 throw new ArgumentException("wielomian nie może być pusty");
-        }/*
-        private readonly int[] b;//{ get; set; } immutability: nie może być setterów, Provide parameters via constructor., readonly 
-
-        public bool Equals(Wielomian other)
-        {
-            return false;
         }
-        public override bool Equals(object other)
+        //IEquatable Równość, nierówność
+        bool IEquatable<Wielomian>.Equals(Wielomian other)
         {
-            Wielomian w = other as Wielomian;
-
-            return !ReferenceEquals(null, w)
-                && Equals(a, w.a)
-                && Equals(b, w.b);
+            throw new NotImplementedException();
         }
+
+        //IEquatable Równość, nierówność
+        public /*static */bool Equals(Wielomian w)
+        {
+            return (w != null) && (a == w.a);
+
+        }
+        //IEquatable Równość, nierówność
+        public override bool Equals(object value)
+        {
+            Wielomian number = value as Wielomian;
+
+            return !ReferenceEquals(null, number)
+                && Equals(a, number.a);
+        }
+        //IEquatable Równość, nierówność
         public override int GetHashCode()
         {
             unchecked
@@ -127,86 +192,32 @@ namespace MyMath
                 const int HashingMultiplier = 16777619;
 
                 int hash = HashingBase;
-                hash = (hash * HashingMultiplier) ^ (!Object.ReferenceEquals(null, a) ? a.GetHashCode() : 0);
-                hash = (hash * HashingMultiplier) ^ (!Object.ReferenceEquals(null, b) ? b.GetHashCode() : 0);
+                hash = (hash * HashingMultiplier) ^ (!ReferenceEquals(null, a) ? a.GetHashCode() : 0);
                 return hash;
             }
         }
+        //IEquatable Równość, nierówność
         public static bool operator ==(Wielomian numberA, Wielomian numberB)
         {
-            if (Object.ReferenceEquals(numberA, numberB))
+            if (ReferenceEquals(numberA, numberB))
             {
                 return true;
             }
 
-            if (Object.ReferenceEquals(null, numberA))
+            if (ReferenceEquals(null, numberA))
             {
                 return false;
             }
 
-            return (numberA.Equals(numberB));
+            return numberA.Equals(numberB);
         }
+        //IEquatable Równość, nierówność
         public static bool operator !=(Wielomian numberA, Wielomian numberB)
         {
             return !(numberA == numberB);
-        }*/
-        /*
-        public IEnumerator<Wielomian> GetEnumerator()
-        {
-            //Wielomian a = new Wielomian(WielomianEnum.dane);
-            throw new NotImplementedException("Cannot implicitly convert type WielomianEnum to Wielomian.\n An explicit conversion exists (are you missing a cast?) "); //new WielomianEnum(dane);
-            //return new (WielomianEnum(WielomianEnum.dane);
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator(); //return (IEnumerator)GetEnumerator();
         }
     }
-    public class WielomianEnum : IEnumerator
-    {
-        public static Wielomian[] dane;
-        int position = -1;
-
-        public WielomianEnum(Wielomian[] list)
-        {
-            dane = list;
-        }
-
-        public bool MoveNext()
-        {
-            position++;
-            return (position < dane.Length);
-        }
-
-        public void Reset()
-        {
-            position = -1;
-        }
-
-        object IEnumerator.Current
-        {
-            get
-            {
-                return Current;
-            }
-        }
-
-        public Wielomian Current
-        {
-            get
-            {
-                try
-                {
-                    return dane[position];
-                }
-                catch (IndexOutOfRangeException)
-                {
-                    throw new InvalidOperationException();
-                }
-            }
-        }*/
-    }
+   
 
 }
 
