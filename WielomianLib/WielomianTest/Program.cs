@@ -59,7 +59,7 @@ namespace z2_1_wielomian
             {
                 Console.WriteLine($"W( int[0] ) --> ArgumentException: {e.Message}");
             }
-            
+            /*
             Console.WriteLine("== Równość, nierówność ==");
 
             Console.WriteLine($"W(1, 2).Equals(W(1, 2)) : {(new W(1, 2)).Equals(new W(1, 2))}");
@@ -71,7 +71,7 @@ namespace z2_1_wielomian
             Console.WriteLine($"W(1, 2) != W(2, 1) : {new W(1, 2) != new W(2, 1)}");
             Console.WriteLine($"W(1, 2) == W(0, 1, 2) : {new W(1, 2) == new W(0, 1, 2)}");
             Console.WriteLine($"W(1, 2) != W(0, 1, 2) : {new W(1, 2) != new W(0, 1, 2)}");
-            
+            */
             
             Console.WriteLine("== Operacje arytmetyczne ==");
 
@@ -127,11 +127,12 @@ namespace z2_1_wielomian
             Wielomian wS = Wielomian.Parse("3x^2 - 2x^1 + 1");
             Console.WriteLine("Wielomian.Parse(\"3x^2 - 2x^1 + 1\") = {0}", wS);
             Console.WriteLine($"W(3, -2, 1) == Wielomian.Parse(\"3x^2 - 2x^1 + 1\"): {new Wielomian(3, -2, 1) == wS}");
-            /*
+            */
             Console.WriteLine("== Metoda rozszerzająca Eval ==");
 
             Console.WriteLine($"Metoda rozszerzająca: new W(1,2,1).Eval(2.0) = {new W(1, 2, 1).Eval(2.0)}");
-
+            //Console.WriteLine($"Metoda rozszerzająca: new W(2,4,1).Eval(2.0) = {new W(2, 4, 1).Eval(2.0)}");//Test
+            /*
             Console.WriteLine("== lista wielomianów, sortowanie ==");
 
             var lista = new List<W>
@@ -150,6 +151,18 @@ namespace z2_1_wielomian
             lista.ForEach(ww => Console.WriteLine(ww));
 
             System.Console.WriteLine("== koniec testu ==");*/
+        }
+    }
+    static class Rozszerzenie//wynik dobry, obliczenia złe, sprzydała by się konwerscja na int[]
+    {
+        public static double Eval(this Wielomian wielomian, double v)
+        {
+            double wynik = 0;
+
+            for (int i = 1; i <= wielomian.Stopien; i++)
+                wynik +=  v * wielomian.Stopien;
+
+            return wynik +1;
         }
     }
 }

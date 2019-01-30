@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MyMath
 {
 
-    public sealed class Wielomian : IEquatable<Wielomian>// : IEnumerable<Wielomian> //IE NIE SKOŃCZONE, nie działa poprawnie
+    public sealed class Wielomian// : IEquatable<Wielomian>// : IEnumerable<Wielomian> //IE NIE SKOŃCZONE, nie działa poprawnie
     {
         private readonly int[] a;//{ get; set; } immutability: nie może być setterów, Provide parameters via constructor., readonly 
         public int Stopien => a.Length - 1; //to tylko get
@@ -103,7 +103,7 @@ namespace MyMath
             }
             else
                 throw new ArgumentException("wielomian nie może być pusty");
-        }
+        }/*
         private readonly int[] b;//{ get; set; } immutability: nie może być setterów, Provide parameters via constructor., readonly 
 
         public bool Equals(Wielomian other)
@@ -149,7 +149,7 @@ namespace MyMath
         public static bool operator !=(Wielomian numberA, Wielomian numberB)
         {
             return !(numberA == numberB);
-        }
+        }*/
         /*
         public IEnumerator<Wielomian> GetEnumerator()
         {
