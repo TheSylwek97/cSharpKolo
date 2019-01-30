@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MyMath
 {
 
-    public sealed class Wielomian : IEnumerable<Wielomian>, IEnumerator<Wielomian>, IEquatable<Wielomian> //IE NIE SKOŃCZONE, nie działa poprawnie
+    public sealed class Wielomian : IEnumerable<Wielomian>, IEnumerator<Wielomian>, IEquatable<Wielomian> //IEquatable NIE SKOŃCZONE (nie działa poprawnie)
     {
         private readonly int[] a;//{ get; set; } immutability: nie może być setterów, Provide parameters via constructor., readonly 
         public int Stopien => a.Length - 1; //to tylko get
@@ -41,12 +41,12 @@ namespace MyMath
         public static explicit operator int[] (Wielomian r) // NIE SKOŃCZONE
         {
             Object number = r as Object;
-            //r = Int32.Parse("r");
+            r = Int32.Parse("r");
             //int[] array = c.Split(',').Select(str => int.Parse(str)).ToArray(); //string na int[]
-            // lub int[] array = arr.Split(',').Select(int.Parse).ToArray(); //string na int[]
+            //lub int[] array = arr.Split(',').Select(int.Parse).ToArray(); //string na int[]
             int[] a = number as int[];
             int[] b = new int[] { r };
-            return b;
+            return a;
         }
         //metoda tworząca reprezentacje do strina klasy wielomian
         public override string ToString()
@@ -162,26 +162,23 @@ namespace MyMath
             else
                 throw new ArgumentException("wielomian nie może być pusty");
         }
-        //IEquatable Równość, nierówność
-        bool IEquatable<Wielomian>.Equals(Wielomian other)
-        {
-            throw new NotImplementedException();
-        }
+
 
         //IEquatable Równość, nierówność
-        public /*static */bool Equals(Wielomian w)
+        /*static */bool IEquatable<Wielomian>.Equals(Wielomian w)
         {
-            return (w != null) && (a == w.a);
+            return !ReferenceEquals(null, w)
+                          && Equals(a, w.a);
 
         }
         //IEquatable Równość, nierówność
-        public override bool Equals(object value)
+        /*public override bool Equals(object value)
         {
-            Wielomian number = value as Wielomian;
+            Wielomian w = value as Wielomian;
 
-            return !ReferenceEquals(null, number)
-                && Equals(a, number.a);
-        }
+            return !ReferenceEquals(null, w)
+                && Equals(a, w.a);
+        }*/
         //IEquatable Równość, nierówność
         public override int GetHashCode()
         {
@@ -215,6 +212,13 @@ namespace MyMath
         public static bool operator !=(Wielomian numberA, Wielomian numberB)
         {
             return !(numberA == numberB);
+        }
+
+
+        public static Wielomian Plus(Wielomian a, Wielomian b)
+        {
+            
+            return a;
         }
     }
    

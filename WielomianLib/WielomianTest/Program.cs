@@ -60,7 +60,7 @@ namespace z2_1_wielomian
                 Console.WriteLine($"W( int[0] ) --> ArgumentException: {e.Message}");
             }
             
-            Console.WriteLine("== Równość, nierówność ==");
+            Console.WriteLine("== Równość, nierówność nope==");
 
             Console.WriteLine($"W(1, 2).Equals(W(1, 2)) : {(new W(1, 2)).Equals(new W(1, 2))}");
             Console.WriteLine($"wX.Equals(wX) : {wX.Equals(wX)}");
@@ -73,8 +73,8 @@ namespace z2_1_wielomian
             Console.WriteLine($"W(1, 2) != W(0, 1, 2) : {new W(1, 2) != new W(0, 1, 2)}");
             
             
-            Console.WriteLine("== Operacje arytmetyczne ==");
-
+            Console.WriteLine("== Operacje arytmetyczne nope==");
+            
             var w21 = new W(1, 2, 3);
             var w22 = new W(0, 1, 2);/*
             Console.WriteLine($"({w21}) + ({w22}) = {w21 + w22}");
@@ -157,7 +157,7 @@ namespace z2_1_wielomian
     {
         public static double Eval(this Wielomian wielomian, double v)
         {
-            double wynik = 0;
+            double wynik = 0.0;
 
             for (int i = 1; i <= wielomian.Stopien; i++)
                 wynik +=  v * wielomian.Stopien;
