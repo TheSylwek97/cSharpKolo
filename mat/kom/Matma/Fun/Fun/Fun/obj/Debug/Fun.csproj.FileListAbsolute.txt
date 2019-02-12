@@ -1,6 +1,0 @@
-C:\Users\Daniel\Desktop\Matma\Fun\Fun\Fun\bin\Debug\Fun.exe
-C:\Users\Daniel\Desktop\Matma\Fun\Fun\Fun\bin\Debug\Fun.pdb
-C:\Users\Daniel\Desktop\Matma\Fun\Fun\Fun\obj\Debug\Fun.csprojAssemblyReference.cache
-C:\Users\Daniel\Desktop\Matma\Fun\Fun\Fun\obj\Debug\Fun.csproj.CoreCompileInputs.cache
-C:\Users\Daniel\Desktop\Matma\Fun\Fun\Fun\obj\Debug\Fun.exe
-C:\Users\Daniel\Desktop\Matma\Fun\Fun\Fun\obj\Debug\Fun.pdb
